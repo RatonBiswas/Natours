@@ -5,8 +5,8 @@ dotenv.config({
   path: './config.env'
 });
 process.on('uncaughtException', err => {
-  console.log('Uncaughted Exception ! 💥. Shutting Down.');
-  console.log(err.name, err.message);
+   console.log('Uncaughted Exception ! 💥. Shutting Down.');
+   console.log(err.name, err.message);
   process.exit(1);
 });
 const app = require('./app');
@@ -41,7 +41,7 @@ mongoose
 //   })
 //   .catch(err => {
 //     // eslint-disable-next-line no-console
-//     console.log('Error!💥', err);
+    console.log('Error!💥', err);
 //   });
 
 const port = process.env.port || 3000;
@@ -50,6 +50,7 @@ const server = app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`Your server is running on ${port}....👍`);
 });
+
 process.on('unhandledRejection', err => {
   console.log(err.name, err.message);
   console.log('UNHANDLED REJECTION ! 💥. Shutting Down.');

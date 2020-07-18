@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const tourRoutes = require('./routers/tourRouters');
 const userRoutes = require('./routers/userRouters');
@@ -80,6 +81,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   console.log('This is middleware apps');
 //   next();
 // });
+
+app.use(compression());
 
 //Test Middleware
 app.use((req, res, next) => {
