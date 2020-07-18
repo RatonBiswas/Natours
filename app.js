@@ -16,6 +16,8 @@ const viewRoutes = require('./routers/viewRouters');
 
 const globalErrorHandler = require('./Controller/errorController');
 const AppError = require('./utils/appError');
+
+//Start express App
 const app = express();
 
 //Use template pug
@@ -40,8 +42,13 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 //Body perser,Reading data from body into req.body
-app.use(express.json({ limit: '10kb' }));
-app.use(express.urlencoded({ extended : true , limit: '10kb'}));
+app.use(express.json({
+  limit: '10kb'
+}));
+app.use(express.urlencoded({
+  extended: true,
+  limit: '10kb'
+}));
 app.use(cookieParser());
 
 //Data sanitize against NoSQL query Injection
