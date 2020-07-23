@@ -21,6 +21,8 @@ const AppError = require('./utils/appError');
 //Start express App
 const app = express();
 
+app.enable('trust proxy');
+
 //Use template pug
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
